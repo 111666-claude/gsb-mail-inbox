@@ -21,7 +21,10 @@ def main(argv=None):
         granted += sum(count for _, count in first)
         second = inbox.claim("m-1", 2000)
         granted += sum(count for _, count in second)
-        print("first=%s second=%s items=%d" % (bool(first), bool(second), granted))
+        print("first=%s second=%s items=%d" % (
+            "true" if first else "false",
+            "true" if second else "false",
+            granted))
     elif args.sample == "expire":
         inbox = Inbox()
         inbox.deliver(Mail("m-1", 1000, [("gold", 1)]))
